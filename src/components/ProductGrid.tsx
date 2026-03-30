@@ -17,7 +17,7 @@ export default function ProductGrid() {
 
   return (
     <section id="products" className="py-20 lg:py-28 bg-[#fffdf7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-main">
         {/* Section Header */}
         <div className="text-center mb-14">
           <span className="text-sm font-semibold text-mango-600 uppercase tracking-widest">

@@ -33,7 +33,7 @@ const stats = [
 export default function About() {
   return (
     <section id="about" className="py-20 lg:py-28 bg-gradient-to-b from-[#fffdf7] to-leaf-50/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-main">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-sm font-semibold text-leaf-600 uppercase tracking-widest">
