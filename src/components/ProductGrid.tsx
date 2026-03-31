@@ -17,23 +17,23 @@ export default function ProductGrid() {
 
   return (
     <section id="products" className="py-24 lg:py-32 bg-[#fffdf7] relative">
-      {/* Subtle bg pattern */}
-      <div className="absolute inset-0 opacity-[0.015]"
+      {/* Subtle organic pattern */}
+      <div className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, #d97706 1px, transparent 0)',
-          backgroundSize: '40px 40px'
+          backgroundImage: 'radial-gradient(circle at 1px 1px, #16a34a 1.5px, transparent 0)',
+          backgroundSize: '48px 48px'
         }}
       />
 
       <div className="container-main relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-mango-100/50 text-mango-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-mango-200/50">
-            <Sparkles className="w-4 h-4" />
+          <div className="section-badge mb-4">
+            <Sparkles className="w-4 h-4 text-mango-500" />
             Our Collection
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-tropical-800 mb-5 tracking-tight">
-            Fresh & <span className="gradient-text">Delicious</span>
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-earth-800 mb-5 tracking-tight">
+            Freshly <span className="gradient-text">Picked</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
             Hand-picked premium mangoes and artisan mango products, delivered fresh from the orchard to your table.

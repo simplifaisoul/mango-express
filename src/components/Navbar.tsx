@@ -15,8 +15,8 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '#home', label: 'Home' },
-    { href: '#products', label: 'Shop' },
-    { href: '#about', label: 'About' },
+    { href: '#products', label: 'Our Collection' },
+    { href: '#about', label: 'Story' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -24,68 +24,66 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/85 backdrop-blur-2xl shadow-lg shadow-black/5 border-b border-white/50'
+          ? 'glass-garden border-b border-earth-200/50 shadow-sm'
           : 'bg-transparent'
       }`}
     >
       <div className="container-main">
-        <div className="flex items-center justify-between h-18 lg:h-22" style={{ height: isScrolled ? '72px' : '80px' }}>
+        <div className="flex items-center justify-between transition-all duration-500" style={{ height: isScrolled ? '72px' : '90px' }}>
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2.5 group">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-mango-400 to-leaf-500 flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-105 transition-all duration-500 shadow-lg shadow-mango-500/20">
-              <Leaf className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-leaf-400 to-leaf-600 flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-105 transition-all duration-500 shadow-md shadow-leaf-500/20">
+              <Leaf className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className={`text-xl font-bold font-heading tracking-tight transition-colors duration-300 ${isScrolled ? 'text-tropical-800' : 'text-white'}`}>
-                Mango
-              </span>
-              <span className={`text-xl font-bold font-heading transition-colors duration-300 ${isScrolled ? 'text-mango-500' : 'text-mango-300'}`}>
-                Express
+              <span className={`text-xl font-bold font-heading tracking-tight transition-colors duration-300 ${isScrolled ? 'text-earth-800' : 'text-earth-900'}`}>
+                Mango<span className="text-mango-500 ml-0.5">Express</span>
               </span>
             </div>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
             {navLinks.map(link => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative px-5 py-2.5 rounded-xl font-medium text-[0.95rem] transition-all duration-300 hover:text-mango-500 group ${
-                  isScrolled ? 'text-tropical-700 hover:bg-mango-50/60' : 'text-white/80 hover:bg-white/8'
+                className={`relative px-4 py-2 rounded-full font-medium text-[0.95rem] transition-all duration-300 ${
+                  isScrolled 
+                    ? 'text-earth-600 hover:text-leaf-700 hover:bg-leaf-50' 
+                    : 'text-earth-700 hover:text-leaf-800 hover:bg-white/50'
                 }`}
               >
                 {link.label}
-                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-mango-400 to-leaf-500 transition-all duration-300 group-hover:w-6 rounded-full" />
               </a>
             ))}
           </div>
 
           {/* Cart + Mobile Menu */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setIsCartOpen(true)}
-              className={`relative p-2.5 rounded-xl transition-all duration-300 ${
+              className={`relative p-2.5 flex items-center gap-2 rounded-full transition-all duration-300 font-medium text-sm ${
                 isScrolled
-                  ? 'text-tropical-800 hover:bg-mango-50'
-                  : 'text-white hover:bg-white/10'
+                  ? 'bg-earth-100/50 text-earth-800 hover:bg-earth-200/50 border border-transparent'
+                  : 'bg-white/60 backdrop-blur-sm text-earth-800 hover:bg-white/90 shadow-sm border border-earth-200/50'
               }`}
               aria-label="Open cart"
               id="cart-button"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-4 h-4" />
+              <span className="hidden sm:inline">Cart</span>
               {totalItems > 0 && (
                 <span className="cart-badge">{totalItems}</span>
               )}
             </button>
 
             <button
-              className={`lg:hidden p-2.5 rounded-xl transition-all duration-300 ${
-                isScrolled ? 'text-tropical-800 hover:bg-mango-50' : 'text-white hover:bg-white/10'
+              className={`lg:hidden p-2 rounded-full transition-all duration-300 ${
+                isScrolled ? 'bg-earth-100 text-earth-800' : 'bg-white/60 text-earth-800 backdrop-blur shadow-sm'
               }`}
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               aria-label="Toggle menu"
-              id="mobile-menu-button"
             >
               {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -98,17 +96,13 @@ export default function Navbar() {
             isMobileOpen ? 'max-h-72 opacity-100 pb-4' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className={`space-y-1 rounded-2xl p-2 ${isScrolled ? 'bg-gray-50/50' : 'bg-white/5 backdrop-blur-xl'}`}>
+          <div className="space-y-1 rounded-[1.5rem] p-3 bg-white border border-earth-100 shadow-xl shadow-earth-200/20">
             {navLinks.map(link => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileOpen(false)}
-                className={`block py-3.5 px-5 rounded-xl font-medium transition-all duration-300 ${
-                  isScrolled
-                    ? 'text-tropical-700 hover:bg-white hover:shadow-sm'
-                    : 'text-white/90 hover:bg-white/10'
-                }`}
+                className="block py-3 px-5 rounded-xl font-medium text-earth-700 hover:bg-leaf-50 hover:text-leaf-700 transition-colors"
               >
                 {link.label}
               </a>

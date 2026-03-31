@@ -1,29 +1,29 @@
-import { Leaf, Truck, Shield, Award, Users, ArrowRight } from 'lucide-react';
+import { Leaf, Truck, Shield, Award, Users } from 'lucide-react';
 
 const features = [
   {
-    icon: <Leaf className="w-7 h-7 text-leaf-500" />,
+    icon: <Leaf className="w-6 h-6 text-leaf-600" />,
     title: '100% Organic',
-    description: 'Naturally grown without pesticides or chemicals. Pure, clean, and healthy.',
-    accent: 'from-leaf-400/20 to-leaf-500/10',
+    description: 'Naturally grown without artificial pesticides. Pure, clean, and healthy roots.',
+    accent: 'bg-leaf-50 border-leaf-100',
   },
   {
-    icon: <Truck className="w-7 h-7 text-mango-500" />,
+    icon: <Truck className="w-6 h-6 text-mango-600" />,
     title: 'Express Delivery',
-    description: 'Same-day delivery on orders before 2 PM. Fresh from orchard to doorstep.',
-    accent: 'from-mango-400/20 to-mango-500/10',
+    description: 'Same-day delivery on orders before 2 PM. Direct from orchard to doorstep.',
+    accent: 'bg-mango-50 border-mango-100',
   },
   {
-    icon: <Shield className="w-7 h-7 text-leaf-500" />,
+    icon: <Shield className="w-6 h-6 text-leaf-600" />,
     title: 'Freshness Guaranteed',
     description: 'Not happy? Full refund, no questions asked. We stand behind our quality.',
-    accent: 'from-leaf-400/20 to-leaf-500/10',
+    accent: 'bg-leaf-50 border-leaf-100',
   },
   {
-    icon: <Award className="w-7 h-7 text-mango-500" />,
+    icon: <Award className="w-6 h-6 text-mango-600" />,
     title: 'Premium Quality',
     description: 'Hand-selected by expert farmers. Only the finest mangoes make the cut.',
-    accent: 'from-mango-400/20 to-mango-500/10',
+    accent: 'bg-mango-50 border-mango-100',
   },
 ];
 
@@ -36,25 +36,24 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-gradient-to-b from-[#fffdf7] via-white to-leaf-50/20 relative overflow-hidden">
-      {/* Decorative orbs */}
-      <div className="absolute top-40 -right-40 w-[500px] h-[500px] bg-mango-200/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 -left-40 w-[400px] h-[400px] bg-leaf-200/20 rounded-full blur-[120px] pointer-events-none" />
+    <section id="about" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+      {/* Decorative nature strokes */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-mango-200/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 -left-20 w-[400px] h-[400px] bg-leaf-200/20 organic-shape-1 blur-2xl pointer-events-none" />
 
       <div className="container-main relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-leaf-100/50 text-leaf-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-leaf-200/50">
-            <Shield className="w-4 h-4" />
-            Why Choose Us
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="section-badge mb-4">
+            <Leaf className="w-4 h-4 text-leaf-600" />
+            Our Roots
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-tropical-800 mb-5 tracking-tight">
-            The <span className="gradient-text">Mango Express</span> Difference
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-earth-800 mb-6 tracking-tight">
+            Cultivating the <span className="gradient-text">Finest Mangoes</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            We're passionate about delivering the freshest, most flavorful mangoes straight from trusted farms to your family's table.
+          <p className="text-earth-500 text-lg leading-relaxed">
+            We're a family of passionate growers bringing you the freshest, most flavorful mangoes straight from our sunlit orchards to your table. Simple, natural, and perfectly ripe.
           </p>
-          <div className="section-divider mt-6" />
         </div>
 
         {/* Features Grid */}
@@ -62,53 +61,50 @@ export default function About() {
           {features.map((feature, idx) => (
             <div
               key={feature.title}
-              className="group bg-white rounded-[1.5rem] p-8 shadow-sm border border-gray-100/80 hover:shadow-xl hover:shadow-mango-200/15 hover:-translate-y-3 transition-all duration-500 animate-fade-in-up opacity-0 relative overflow-hidden"
-              style={{ animationDelay: `${idx * 120}ms`, animationFillMode: 'forwards' }}
+              className={`group bg-white rounded-[2rem] p-8 shadow-sm border border-earth-100 hover:shadow-xl hover:shadow-leaf-100/50 hover:-translate-y-2 transition-all duration-400 animate-fade-in-up opacity-0 relative overflow-hidden`}
+              style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'forwards' }}
             >
-              {/* Hover glow */}
-              <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${feature.accent} rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
               <div className="relative z-10">
-                <div className="feature-icon mb-6 group-hover:scale-110 transition-transform duration-500">{feature.icon}</div>
-                <h3 className="font-heading text-lg font-bold text-tropical-800 mb-2.5">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border ${feature.accent}`}>
+                  {feature.icon}
+                </div>
+                <h3 className="font-heading text-xl font-bold text-earth-800 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
+                <p className="text-sm text-earth-500 leading-relaxed font-body">
+                  {feature.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Stats Banner */}
-        <div className="relative bg-gradient-to-r from-leaf-700 via-leaf-800 to-tropical-900 rounded-[2rem] p-10 lg:p-14 shadow-2xl shadow-leaf-900/30 overflow-hidden noise-overlay">
-          {/* Decorative */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-mango-400/5 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-leaf-400/5 rounded-full blur-[80px]" />
+        <div className="relative bg-gradient-to-br from-leaf-700 to-leaf-900 rounded-[2.5rem] p-10 lg:p-16 shadow-2xl shadow-leaf-900/10 overflow-hidden">
+          {/* Subtle nature texture */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-mango-400/10 organic-shape-1 blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-2xl" />
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
             {stats.map((stat, idx) => (
               <div
                 key={stat.label}
-                className="text-center animate-count-up opacity-0"
+                className="text-center animate-fade-in-up opacity-0"
                 style={{ animationDelay: `${idx * 150}ms`, animationFillMode: 'forwards' }}
               >
-                <div className="text-4xl lg:text-5xl font-bold text-mango-400 font-heading mb-2 tracking-tight">
+                <div className="text-4xl lg:text-5xl font-bold gradient-text-sun font-heading mb-3 tracking-tight">
                   {stat.value}
                 </div>
-                <div className="text-sm text-white/50 font-medium tracking-wide">{stat.label}</div>
+                <div className="text-sm text-white/70 font-medium tracking-wide uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-center gap-2 mt-10 text-white/40 text-sm relative z-10">
-            <Users className="w-4 h-4" />
-            Trusted by thousands of mango lovers across the country
-          </div>
-
-          <div className="flex justify-center mt-8 relative z-10">
-            <a href="#products" className="inline-flex items-center gap-2 text-mango-300 hover:text-mango-200 text-sm font-semibold transition-colors duration-300 group">
-              Explore Our Products
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+          
+          <div className="flex justify-center mt-12 relative z-10">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-sm">
+              <Users className="w-4 h-4 text-mango-300" />
+              Trusted by families across Ottawa
+            </div>
           </div>
         </div>
       </div>
